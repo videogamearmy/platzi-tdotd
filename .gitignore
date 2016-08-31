@@ -1,0 +1,7 @@
+Library
+Temp
+obj
+.DS_Store
+Android
+*.sln
+*.csproj
