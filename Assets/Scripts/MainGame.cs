@@ -4,7 +4,9 @@ using UnityEngine.UI;
 public class MainGame : MonoBehaviour {
 	public Camera m_MainCamera;
 	public GameObject m_Master;
+	public Animator m_MasterAnimator;
 	public GameObject m_Player;
+	public Animator m_PlayerAnimator;
 
 	public GameObject m_Arrow;
 	// Use this for initialization
@@ -25,26 +27,29 @@ public class MainGame : MonoBehaviour {
 	void Update () {
 		BaseState.Update();
 	}
-	public enum StepType{ Right, Up, Left, Down };
-	static Quaternion[] BaseSteps = new Quaternion[]{ Quaternion.Euler(0,0,0f), Quaternion.Euler(0,0,90f), Quaternion.Euler(0,0,180f), Quaternion.Euler(0,0,270f)};
+	public enum PasoTipo{ Right, Up, Left, Down };
+	static Quaternion[] PasosBase = new Quaternion[]{ Quaternion.Euler(0,0,0f), Quaternion.Euler(0,0,90f), Quaternion.Euler(0,0,180f), Quaternion.Euler(0,0,270f)};
 
-	List<StepType> m_Steps = new List<StepType>();
-	List<StepType>.Enumerator m_currentStep;
+	List<PasoTipo> m_Pasos = new List<PasoTipo>();
+	List<PasoTipo>.Enumerator m_pasoActual;
 
 	public void AddNewStep(){
-		m_Steps.Add( (StepType)Random.Range(0, 4 ) );
+		m_Pasos.Add( (PasoTipo)Random.Range(0, 4 ) );
 	}
 
 	public void StartSteps(){
-		m_currentStep = m_Steps.GetEnumerator();
+		m_pasoActual = m_Pasos.GetEnumerator();
 	}
 
-	public bool ShowNextStep(){
-		if(m_currentStep.MoveNext() ){
-			m_Arrow.SetActive(true);		
-			m_Arrow.transform.rotation = BaseSteps[(int)m_currentStep.Current];
+	public bool ShowNextStep(Animator animator){
+		if(m_pasoActual.MoveNext() ){
+			m_Arrow.SetActive(true);
+			int paso = (int)m_pasoActual.Current;
+			animator.SetInteger("Paso", paso+1);
+			m_Arrow.transform.rotation = PasosBase[paso];
 			return true;
 		}
+		animator.SetInteger("Paso", 0);
 		return false;
 	}
 	public void HideStep(){

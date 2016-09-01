@@ -4,7 +4,7 @@ using System.Collections;
 public class MasterState : BaseStateInstance<MasterState> {
 	// Use this for initialization
 	float m_timer = 0;
-	float m_duration = 0.5f;
+	float m_duration = 0.75f;
 	public override void Start (MainGame game) { 
 		game.m_MainCamera.transform.LookAt(game.m_Master.transform);
 		// Añade un nuevo paso.
@@ -16,7 +16,7 @@ public class MasterState : BaseStateInstance<MasterState> {
 		m_timer += Time.deltaTime;
 		if(m_timer>m_duration){
 			m_timer = 0;
-			if(!game.ShowNextStep()){
+			if(!game.ShowNextStep(game.m_MasterAnimator)){
 				BaseState.Change(GotoPlayerState.Instance);
 			}
 		}
