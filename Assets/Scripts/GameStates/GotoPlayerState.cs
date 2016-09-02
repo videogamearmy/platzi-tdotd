@@ -17,7 +17,7 @@ public class GotoPlayerState : BaseStateInstance<GotoPlayerState> {
 		m_timer += Time.deltaTime;
 		if(m_timer>m_duration) {
 			m_timer=m_duration;
-			BaseState.Change(MasterState.Instance);
+			BaseState.Change(PlayerState.Instance);
 		}else{ 
 			m_currentTarget = Vector3.Lerp(m_currentTarget, game.m_Player.transform.position, m_timer / m_duration);
 			game.m_MainCamera.transform.LookAt(m_currentTarget);

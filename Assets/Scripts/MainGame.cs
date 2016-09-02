@@ -7,8 +7,9 @@ public class MainGame : MonoBehaviour {
 	public Animator m_MasterAnimator;
 	public GameObject m_Player;
 	public Animator m_PlayerAnimator;
-
-	public GameObject m_Arrow;
+	public GameObject m_Flecha;
+	public GameObject[] m_Vidas;
+	public Text m_Score;
 	// Use this for initialization
 	void Start () {
 		HideStep();
@@ -43,16 +44,16 @@ public class MainGame : MonoBehaviour {
 
 	public bool ShowNextStep(Animator animator){
 		if(m_pasoActual.MoveNext() ){
-			m_Arrow.SetActive(true);
+			m_Flecha.SetActive(true);
 			int paso = (int)m_pasoActual.Current;
 			animator.SetInteger("Paso", paso+1);
-			m_Arrow.transform.rotation = PasosBase[paso];
+			m_Flecha.transform.rotation = PasosBase[paso];
 			return true;
 		}
 		animator.SetInteger("Paso", 0);
 		return false;
 	}
 	public void HideStep(){
-		m_Arrow.SetActive(false);
+		m_Flecha.SetActive(false);
 	}
 }
