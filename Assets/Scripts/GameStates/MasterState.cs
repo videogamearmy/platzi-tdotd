@@ -6,6 +6,7 @@ public class MasterState : BaseStateInstance<MasterState> {
 	float m_timer = 0;
 	float m_duration = 0.75f;
 	public override void Start (MainGame game) { 
+		m_timer = 0;
 		game.m_MainCamera.transform.LookAt(game.m_Master.transform);
 		// Añade un nuevo paso.
 		game.StartSteps();
@@ -23,6 +24,6 @@ public class MasterState : BaseStateInstance<MasterState> {
 	}
 
 	public override void End(MainGame game){
-		game.HideStep();
+		game.ReiniciaPaso();
 	}
 }

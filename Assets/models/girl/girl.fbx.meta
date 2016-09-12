@@ -146,7 +146,7 @@ ModelImporter:
     7400004: Paso2
     7400006: Paso3
     7400008: Paso4
-    7400010: Salto
+    7400010: Fallo
     9500000: //RootNode
     13700000: Character
   materials:
@@ -916,7 +916,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Salto
+      name: Fallo
       takeName: Take 001
       firstFrame: 100
       lastFrame: 119

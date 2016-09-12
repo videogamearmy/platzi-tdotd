@@ -3,7 +3,7 @@ using System.Collections;
 
 public class GotoMasterState : BaseStateInstance<GotoMasterState> {
 	float m_timer = 0;
-	float m_duration = 4.0f;
+	float m_duration = 1.0f;
 	Vector3 m_currentTarget;
 	// Use this for initialization
 	public override void Start (MainGame game) { 

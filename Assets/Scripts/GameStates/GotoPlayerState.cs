@@ -4,7 +4,7 @@ using System.Collections;
 public class GotoPlayerState : BaseStateInstance<GotoPlayerState> {
 
 	float m_timer = 0;
-	float m_duration = 2.0f;
+	float m_duration = 0.5f;
 	Vector3 m_currentTarget;
 	// Use this for initialization
 	public override void Start (MainGame game) { 
