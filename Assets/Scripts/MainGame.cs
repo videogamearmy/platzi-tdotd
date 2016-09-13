@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class MainGame : MonoBehaviour {
 	public Camera m_MainCamera;
 	public GameObject m_Master;
@@ -11,7 +12,7 @@ public class MainGame : MonoBehaviour {
 	public GameObject m_Mal;
 	int m_nVidas;
 	public GameObject[] m_Vidas;
-	public Text m_Score;
+	public Text m_Puntuacion;
 	public Image m_Empezar;
 	public AudioSource MyAudioSource;
 	// Use this for initialization
@@ -128,6 +129,7 @@ public class MainGame : MonoBehaviour {
 	int m_misPuntos=0;
 	public void SumaPuntuacion(int puntos){
 		m_misPuntos+=puntos;
+		m_Puntuacion.text =m_misPuntos.ToString("D6"); 
 	}
 
 	void ActualizaVidas(){
@@ -147,7 +149,7 @@ public class MainGame : MonoBehaviour {
 		ActualizaVidas();
 		if(m_nVidas==0){
 			// Fin juego.
-			BaseState.Change(EndPlayerState.Instance);
+			SceneManager.LoadScene("MainMenu");
 		}
 		else
 			BaseState.Change(EndPlayerState.Instance);

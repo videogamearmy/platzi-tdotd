@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: b99fa6890765f4e10a0a40b2c77d5ffa
-timeCreated: 1472565534
+guid: 8cbfa458f6771425cb78e28c341d8d78
+timeCreated: 1473750749
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName: {}
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -44,16 +44,11 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 200
-  alphaIsTransparency: 0
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 5
-  buildTargetSettings:
-  - buildTarget: Android
-    maxTextureSize: 512
-    textureFormat: 34
-    compressionQuality: 50
-    allowsAlphaSplitting: 0
+  textureType: 8
+  buildTargetSettings: []
   spriteSheet:
     serializedVersion: 2
     sprites: []
