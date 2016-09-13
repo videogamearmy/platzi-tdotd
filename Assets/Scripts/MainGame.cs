@@ -24,9 +24,9 @@ public class MainGame : MonoBehaviour {
 		AddNewStep();
 		
 		BaseState.SetGame(this);
-		BaseState.Change(MasterState.Instance);
+//		BaseState.Change(MasterState.Instance);
 
-//		BaseState.Change(GotoMasterState.Instance);
+		BaseState.Change(GotoMasterState.Instance);
 	}
 	
 	// Update is called once per frame
