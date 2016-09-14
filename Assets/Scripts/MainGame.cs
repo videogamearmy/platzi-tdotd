@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 public class MainGame : MonoBehaviour {
 	public Camera m_MainCamera;
 	public GameObject m_Master;
@@ -15,6 +14,9 @@ public class MainGame : MonoBehaviour {
 	public Text m_Puntuacion;
 	public Image m_Empezar;
 	public AudioSource MyAudioSource;
+	public GameObject m_InGame;
+	public GameObject m_GameOver;
+
 	// Use this for initialization
 	void Start () {
 		ReiniciaJuego();
@@ -61,6 +63,8 @@ public class MainGame : MonoBehaviour {
 	}
 	public void ReiniciaJuego(){
 		m_nVidas = 3;
+		m_InGame.SetActive(true);
+		m_GameOver.SetActive(false);
 		ActualizaVidas();
 		m_misPuntos = 0;
 		m_Pasos.Clear();
@@ -70,6 +74,10 @@ public class MainGame : MonoBehaviour {
 		m_Mal.SetActive(false);
 		m_Flecha.SetActive(false);
 		m_Empezar.enabled=false;	
+	}
+	public void GameOver(){
+		m_InGame.SetActive(false);
+		m_GameOver.SetActive(true);
 	}
 	float m_timerEmpezar;
 	public void MuestraEmpezar(){
@@ -149,7 +157,7 @@ public class MainGame : MonoBehaviour {
 		ActualizaVidas();
 		if(m_nVidas==0){
 			// Fin juego.
-			SceneManager.LoadScene("MainMenu");
+			BaseState.Change(GameOverState.Instance);
 		}
 		else
 			BaseState.Change(EndPlayerState.Instance);
